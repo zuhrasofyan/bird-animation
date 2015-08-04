@@ -1,0 +1,176 @@
+/* CSS Document */
+
+body {
+	background: #a5c9e5;
+	overflow: hidden;
+}
+
+#sky {
+	position:absolute;
+	width:100%;
+	height: 450px;
+	background: transparent url(../img/clouds.png) 0 0px repeat-x; 
+	left: 0px; top:0px;
+	background-size: 1000px 300px;
+}
+
+#butterfly1 {
+    background: url("../img/kupu3.png") no-repeat scroll 0 0 transparent;
+    height: 150px;
+    position: absolute;
+    width: 160px;
+    z-index: 2000;
+	cursor:pointer;
+}
+
+#butterfly2 {
+    background: url("../img/kupu_red.png") no-repeat scroll 0 0 transparent;
+    height: 150px;
+    position: absolute;
+    width: 160px;
+    z-index: 2001;
+	cursor:pointer;
+}
+
+#butterfly3 {
+    background: url("../img/kupu_green.png") no-repeat scroll 0 0 transparent;
+    height: 150px;
+    position: absolute;
+    width: 160px;
+    z-index: 2002;
+	cursor:pointer;
+}
+
+#butterfly4 {
+    background: url("../img/kupu3.png") no-repeat scroll 0 0 transparent;
+    height: 150px;
+    position: absolute;
+    width: 160px;
+    z-index: 2003;
+	cursor:pointer;
+}
+
+#butterfly5 {
+    background: url("../img/kupu_red.png") no-repeat scroll 0 0 transparent;
+    height: 150px;
+    position: absolute;
+    width: 160px;
+    z-index: 2004;
+	cursor:pointer;
+}
+
+#butterfly6 {
+    background: url("../img/kupu_green.png") no-repeat scroll 0 0 transparent;
+    height: 150px;
+    position: absolute;
+    width: 160px;
+    z-index: 2005;
+	cursor:pointer;
+}
+
+.wrapper {
+	min-height: 600px;
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 130%;
+	left: -280px;
+	top: 0;
+}
+
+.scene, .layer, .layer2 {
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.scene {
+	min-height: 460px;
+	position: absolute;
+	overflow: hidden;
+	top: 0px;
+}
+
+.layer {
+	position: absolute;
+}
+
+.hill {
+	background: url(../img/mountain1b.png) transparent repeat-x 50% 100%; /*middle=50% bottom=100%*/
+	bottom: 96px;
+	position: absolute;
+	width: 110%;
+	left: -5%;
+
+}
+
+.rainbow {
+	background: url(../img/rainbow.png) transparent no-repeat 70% 100%; /*90%=position right, bottom=100%*/
+	bottom: 200px;
+	position: absolute;
+	width: 130%;
+	
+}
+
+.ground {
+	background: url(../img/soil_ground.png) transparent repeat-x 50% 100%;
+	bottom : -75px;
+	position: absolute;
+	width: 200%;
+	left: -20%;
+}
+
+.tree {
+	background: url(../img/tree2.png) transparent no-repeat 0% 100%;
+	bottom: -90px;
+	position: absolute;
+	width: 100%;
+	
+}
+
+
+
+.grass2 {
+	background: transparent repeat-x;
+	background-image: url(../img/half_grass2.png);
+	position: absolute;
+	width: 300%;
+	left: -100%;
+}
+
+
+
+/*scene parallax. 1-100. 100 is the most front*/
+
+.rainbow.depth-20 {
+	margin: 0px 0px;
+	height:500px;
+}
+
+.hill.depth-30 {
+	margin: 0px 0px;
+	height: 500px;
+}
+
+.ground.depth-40 {
+	margin: 0px 0px;
+	height: 500px;
+	background-size : 1000px 375px;
+}
+
+.tree.depth-90 {
+	margin: 0px 0px;
+	height: 1000px;
+	background-size : 1000px 1000px;
+}
+
+
+.grass2.depth-100 {
+	bottom: -100px;
+	margin: 0px 0px;
+	background-size: 789px 250px;
+	height: 250px;
+}
+

@@ -1,0 +1,117 @@
+/* Reset css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS Document */
+
+body {
+	background: #709A3E;
+}	
+
+.wrapper {
+  min-height: 460px;
+  position: absolute;
+  overflow: hidden;
+  display: table;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+}
+
+.scene,
+.layer {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+.scene {
+  min-height: 460px;
+  position: relative;
+  overflow: hidden; }
+
+.layer {
+  position: absolute; }
+
+
+.grass2 {
+  background: transparent repeat-x;
+  position: absolute;
+  width: 300%;
+  left: -100%; }
+  .grass2:after {
+    background-color: #709A3E;
+    position: absolute;
+    display: block;
+    content: "";
+    height: 320px;
+    width: 100%;
+    top: 100%;
+    left: 0; }
+  .grass2.plain {
+    background-image: url(../img/grass01.png); }
+  .grass2.paint {
+    background-image: url(../img/wave-paint.png); }
+
+.grass2.depth-80 {
+  bottom: 0px;
+  margin: 0px 0px;
+  background-size: 600px 128px;
+  height: 128px; }
+  .grass2.depth-80:after {
+    height: 32px; }
+
+.grass2.depth-100 {
+  bottom: -40px;
+  margin: 0px 0px;
+  background-size: 800px 160px;
+  height: 160px; }
+  .grass2.depth-100:after {
+    height: 0px; }
+
+
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="eng" lang="eng">
+<head>
+
+    <link rel="stylesheet" type="text/css" href="css/main_with_animate.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>   
+	<script  src="src/jquery.spritely-0.6.js"></script>
+	
+	
+
+
+
+	<script type="text/javascript">
+	
+	function mysprite() {
+		var skywidth = $('#sky').width();
+		
+		console.log(skywidth);
+		$('#sky').pan({fps: 30, speed: 0.5, dir: 'left'}); 
+		
+		var stage_left = (($('body').width() - 866) );
+		var stage_top = 30;
+		//Bird sprite
+		$('#plane1').sprite({fps: 8, no_of_frames: 8})
+			.activeOnClick().active()
+			.spRandom({
+				top: 0,
+				left: 0,
+				right: skywidth,
+				bottom: 350,
+				speed: 6000,
+				pause: 1000
+			})
+			.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#plane1').fadeTo('fast', 0.7);
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#plane1').fadeTo('fast', 1);
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+			
+			var birdoffset = $('#plane1').offset().left;
+			console.log(birdoffset);
+		
+		
+		//David sprite
+		$('#david').sprite({fps: 15, no_of_frames: 10})
+			.activeOnClick().active()
+			.spRandom({
+				top: 40,
+				left: stage_left + 20,
+				right: 400,
+				bottom: 140,
+				speed: 3500,
+				pause: 1000
+			})
+			.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#david').fadeTo('fast', 0.7);
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#david').fadeTo('fast', 1);
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+		$('body').flyToTap();
+	}	
+	
+	function mysprite2() {
+		//Bird2 sprite
+		var ab = Math.floor(50 + (1 + 250- 50) * Math.random());
+		console.log(ab);
+		$('#plane2').sprite({fps: 3, no_of_frames: 3})
+			.activeOnClick().active()
+			.spRandom({
+				top: 20,
+				left: 60,
+				right: 250,
+				bottom: 350,
+				speed: 10000,
+				pause: 500
+			});
+	}
+	
+	function mypan() {
+		//$('#grass').pan({fps: 30, speed: 2, dir: 'left'});
+		$('.grass2').sprite({fps:2, no_of_frames:2});
+	}
+	
+	$(document).ready(function() {
+		mysprite();	
+		mysprite2();
+		mypan();
+	});
+		
+	</script>
+</head> 
+<body>
+	
+	<div id="sky"></div>
+	<div id="plane1"></div>
+	<div id="plane2"></div>
+	<div id="david"></div>
+	
+	<div id="container" class="wrapper">	
+		<ul id="scene" class="scene" style="width: 1366px; height: 376px; -webkit-transform: translate3d(0, 0, 0); -webkit-transform-style: preserve-3d; -webkit-backface-visibility: hidden;" data-mode="cursor">
+			<li class="layer" data-depth="0.80" ><div class="grass2 paint depth-80"></div></li>
+			<li class="layer" data-depth="1.00" ><div class="grass2 paint depth-100"></div></li>
+		</ul>
+	</div>
+	
+	<script src="src/parallax.js"></script>
+
+	<script>
+
+	// Pretty simple huh?
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+
+	</script>
+</body>
+	
+	
+</html>

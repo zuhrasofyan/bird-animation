@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="eng" lang="eng">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>   
+	<script  src="src/jquery.spritely-0.6.js"></script>
+	
+	<script type="text/javascript">
+	
+	//function to pan the cloud
+	function cloud_pan() {
+		var skywidth = $('#sky').width();
+		
+		console.log(skywidth);
+		$('#sky').pan({fps: 30, speed: 0.5, dir: 'left'}); 
+		
+		var stage_left = (($('body').width() - 866) );
+		var stage_top = 30;
+	}	
+	
+	//blue butterfly
+	function spriteIMG1(){
+		$('#butterfly1').sprite({fps: 5, no_of_frames: 8}).activeOnClick().active()
+		.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#butterfly1').fadeTo('fast', 0.7);
+
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#butterfly1').fadeTo('fast', 1);
+					animateIMG1();
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+	}
+	
+	//red butterfly
+	function spriteIMG2(){
+		$('#butterfly2').sprite({fps: 6, no_of_frames: 8}).activeOnClick().active()
+		.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#butterfly2').fadeTo('fast', 0.7);
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#butterfly2').fadeTo('fast', 1);
+					animateIMG2();
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+	}
+	
+	//green butterfly
+	function spriteIMG3(){
+		$('#butterfly3').sprite({fps: 6, no_of_frames: 8}).activeOnClick().active()
+		.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#butterfly3').fadeTo('fast', 0.7);
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#butterfly3').fadeTo('fast', 1);
+					animateIMG3();
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+	}
+	
+	/*part 2 butterfly sprites*/
+	//blue butterfly
+	function spriteIMG4(){
+		$('#butterfly4').sprite({fps: 5, no_of_frames: 8}).activeOnClick().active()
+		.isDraggable({
+				start: function(event, ui) {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#butterfly4').fadeTo('fast', 0.7);
+
+				},
+				stop: function(event, ui) {
+					// Return sprite to 100% opacity when finished
+					$('#butterfly4').fadeTo('fast', 1);
+					animateIMG4();
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+	}
+	
+	//red butterfly
+	function spriteIMG5(){
+		$('#butterfly5').sprite({fps: 6, no_of_frames: 8}).activeOnClick().active()
+		.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#butterfly5').fadeTo('fast', 0.7);
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#butterfly5').fadeTo('fast', 1);
+					animateIMG5();
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+	}
+	
+	//green butterfly
+	function spriteIMG6(){
+		$('#butterfly6').sprite({fps: 6, no_of_frames: 8}).activeOnClick().active()
+		.isDraggable({
+				start: function() {
+					// Fade sprite to 70% opacity when at the start of the drag
+					$('#butterfly6').fadeTo('fast', 0.7);
+				},
+				stop: function() {
+					// Return sprite to 100% opacity when finished
+					$('#butterfly6').fadeTo('fast', 1);
+					animateIMG6();
+				},
+				drag: function() {
+					// This event will fire constantly whilst the object is being dragged
+				}
+			});
+	}
+	
+	
+	/*end part 2 sprites*/
+	
+	/*function to randomly move butterfly*/
+	function makeNewPosition(){
+	    
+	    // Get viewport dimensions (remove the dimension of the div)
+	    var h = $(window).height() - 50;
+	    var w = $(window).width() - 50;
+	    
+	    var nh = Math.floor(Math.random() * h);
+	    var nw = Math.floor(Math.random() * w);
+	    
+	    return [nh,nw];    
+	    
+	}
+	
+	//animate blue butterfly
+	function animateIMG1(){
+		
+	    var newq = makeNewPosition();
+	    var oldq = $('#butterfly1').offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    var ang = getNewAngle([oldq.top, oldq.left], newq); 
+	    $('#butterfly1').css("-webkit-transform","rotate("+ang+"deg)");
+	    $('#butterfly1').css("transform","rotate("+ang+"deg)");
+	    $('#butterfly1').animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateIMG1();        
+	    });
+	    
+	};
+	
+	//animate red butterfly
+	function animateIMG2(){
+		
+	    var newq = makeNewPosition();
+	    var oldq = $('#butterfly2').offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    var ang = getNewAngle([oldq.top, oldq.left], newq); 
+	    $('#butterfly2').css("-webkit-transform","rotate("+ang+"deg)");
+	    $('#butterfly2').css("transform","rotate("+ang+"deg)");
+	    $('#butterfly2').animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateIMG2();        
+	    });
+	    
+	};
+	
+	//animate green butterfly
+	function animateIMG3(){
+		
+	    var newq = makeNewPosition();
+	    var oldq = $('#butterfly3').offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    var ang = getNewAngle([oldq.top, oldq.left], newq); 
+	    $('#butterfly3').css("-webkit-transform","rotate("+ang+"deg)");
+	    $('#butterfly3').css("transform","rotate("+ang+"deg)");
+	    $('#butterfly3').animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateIMG3();        
+	    });
+	    
+	};
+	
+	/*part 2 animate butterflies*/
+	//animate blue butterfly
+	function animateIMG4(){
+		
+	    var newq = makeNewPosition();
+	    var oldq = $('#butterfly4').offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    var ang = getNewAngle([oldq.top, oldq.left], newq); 
+	    $('#butterfly4').css("-webkit-transform","rotate("+ang+"deg)");
+	    $('#butterfly4').css("transform","rotate("+ang+"deg)");
+	    $('#butterfly4').animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateIMG4();        
+	    });
+	    
+	};
+	
+	//animate red butterfly
+	function animateIMG5(){
+		
+	    var newq = makeNewPosition();
+	    var oldq = $('#butterfly5').offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    var ang = getNewAngle([oldq.top, oldq.left], newq); 
+	    $('#butterfly5').css("-webkit-transform","rotate("+ang+"deg)");
+	    $('#butterfly5').css("transform","rotate("+ang+"deg)");
+	    $('#butterfly5').animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateIMG5();        
+	    });
+	    
+	};
+	
+	//animate green butterfly
+	function animateIMG6(){
+		
+	    var newq = makeNewPosition();
+	    var oldq = $('#butterfly6').offset();
+	    var speed = calcSpeed([oldq.top, oldq.left], newq);
+	    var ang = getNewAngle([oldq.top, oldq.left], newq); 
+	    $('#butterfly6').css("-webkit-transform","rotate("+ang+"deg)");
+	    $('#butterfly6').css("transform","rotate("+ang+"deg)");
+	    $('#butterfly6').animate({ top: newq[0], left: newq[1] }, speed, function(){
+	      animateIMG6();        
+	    });
+	    
+	};
+	/*end part 2 animate */
+	
+	function calcSpeed(prev, next) {
+	    
+	    var x = Math.abs(prev[1] - next[1]);
+	    var y = Math.abs(prev[0] - next[0]);
+	    var greatest = x > y ? x : y;
+	    
+	    var speedModifier = 0.1;// control the speed here 
+	
+	    var speed = Math.ceil(greatest/speedModifier);
+	    return speed;
+	
+	}
+	
+	function getNewAngle(prev, next){
+	   var x = prev[1] - next[1];
+	   var y = prev[0] - next[0];
+	   var ang = Math.atan(Math.abs(y)/Math.abs(x))/(Math.PI/180);
+	   if(x>0&&y>0)
+	   return ang-90;
+	   else if(x<0&&y>0)
+	   return ang;
+	   else if(x>0&&y<0)
+	   return ang+180;
+	   else
+	   return ang+90;
+	
+	}
+	
+
+	
+	$(document).ready(function() {
+		spriteIMG1();
+		spriteIMG2();
+		spriteIMG3();
+		spriteIMG4();
+		spriteIMG5();
+		spriteIMG6();
+		cloud_pan();	
+		animateIMG1();
+		animateIMG2();
+		animateIMG3();
+		animateIMG4();
+		animateIMG5();
+		animateIMG6();
+	});
+		
+	</script>
+	
+	
+</head> 
+<body>
+	
+	<div id="sky"></div>
+
+	<div id="container" class="wrapper">	
+		<ul id="scene" class="scene" >
+			<li class="layer" data-depth="0.20" style="position: absolute; display: block; height: 100%; width: 100%; left: 0px; top: 0px;"><div class="rainbow depth-20"></div></li>
+			<li class="layer" data-depth="0.30" style="position: absolute; display: block; height: 100%; width: 100%; left: 0px; top: 0px;"><div class="hill depth-30"></div></li>
+
+			<li class="layer" data-depth="0.70" ><div class="ground depth-40"></div></li>
+			<li class="layer" data-depth="0.80"><div id="butterfly1"></div></li>
+			<li class="layer" data-depth="0.90" style="pointer-events: none; " ><div class="tree depth-90"></div></li>
+
+		</ul>
+	</div>
+	
+	
+	<div id="butterfly2"></div>
+	<div id="butterfly3"></div>
+	<div id="butterfly4"></div>
+	<div id="butterfly5"></div>
+	<div id="butterfly6"></div>
+	
+	<script src="src/parallax.js"></script>
+
+	<script>
+
+	// Pretty simple huh?
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+
+	</script>
+</body>
+	
+	
+</html>

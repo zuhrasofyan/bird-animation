@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="eng" lang="eng">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/test.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>   
+	<script  src="src/jquery.spritely-0.6.js"></script>
+</head> 
+<body>
+	
+
+	<div id="container" class="wrapper">	
+		<ul id="scene" class="scene" >
+			<li class="layer" data-depth="0.10" style="position: absolute; display: block; height: 100%; width: 100%; left: 0px; top: 0px;"><div class="hill depth-10"></div></li>
+			<li class="layer" data-depth="0.40" ><div class="grass2 plain depth-40"></div></li>
+			<li class="layer" data-depth="0.60" ><div class="grass2 plain depth-60"></div></li>
+			<li class="layer" data-depth="0.80" ><div class="grass2 plain depth-80"></div></li>
+			
+			<li class="layer" data-depth="1.00" ><div class="grass2 paint depth-100"></div></li>
+		</ul>
+	</div>
+	<div id="goal"></div>
+	
+	
+	<script src="src/parallax.js"></script>
+
+	<script>
+
+	// Pretty simple huh?
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+
+	</script>
+</body>
+	
+	
+</html>

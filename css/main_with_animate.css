@@ -1,0 +1,216 @@
+/* CSS Document */
+
+body {
+	background: #709A3E;
+	margin:0 ;
+}	
+
+.wrapper {
+  min-height: 460px;
+  position: absolute;
+  overflow: hidden;
+  display: table;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+}
+
+.scene,
+.layer {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+.scene {
+  min-height: 600px;
+  position: relative;
+  overflow: hidden; }
+
+.layer {
+  position: absolute; }
+  .layer div {
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden; }
+
+.title {
+  font-size: 3em;
+  text-shadow: 0 8px 6px rgba(0, 0, 0, 0.6);
+  margin-top: -0.7em;
+  position: absolute;
+  width: 100%;
+  top: 42%; }
+
+.background {
+  background: url(../../images/background.jpg) no-repeat 50% 100%;
+  bottom: 96px;
+  background-size: cover;
+  position: absolute;
+  width: 110%;
+  left: -5%;
+  top: -5%; }
+
+
+
+#sky {
+	position:absolute;
+	width:100%;
+	height: 416px;
+	background: transparent url(../img/clouds.png) 0 0px repeat-x; 
+	left: 0px; top:0px;
+}
+		
+		
+#plane1 {
+    background: url("../img/bird_180x180.png") no-repeat scroll 0 0 transparent;
+    height: 123px;
+    position: absolute;
+    width: 180px;
+    z-index: 2000;
+	cursor:pointer;
+}
+
+#plane2 {
+    background: url("../img/bird-forward-back.png") no-repeat scroll 0 0 transparent;
+    height: 123px;
+    position: absolute;
+    width: 180px;
+    z-index: 2000;
+	cursor:pointer;
+}
+
+#david {
+    background: url("../img/david.png") no-repeat scroll 0 0 transparent;
+    top: 100px;
+	left: 450px;
+	height: 120px;
+    position: absolute;
+    width: 75px;
+    z-index: 1000;
+	cursor:pointer;
+}
+
+
+.grass2 {
+  background: transparent repeat-x;
+  position: absolute;
+  width: 300%;
+  left: -100%; }
+  .grass2:after {
+    background-color: #709A3E;
+    position: absolute;
+    display: block;
+    content: "";
+    height: 500px;
+    width: 100%;
+    top: 100%;
+    left: 0; }
+  .grass2.plain {
+    background-image: url(../img/grass01.png); }
+  .grass2.paint {
+    background-image: url(../img/grass01.png); }
+
+.grass2.depth-80 {
+  -webkit-animation: grass 4.88889s 0.1s infinite linear;
+  -moz-animation: grass 4.88889s 0.1s infinite linear;
+  animation: grass 4.88889s 0.1s infinite linear;
+  bottom: 0px;
+  margin: 0px 0px;
+  background-size: 600px 128px;
+  height: 128px; }
+  .grass2.depth-80:after {
+    height: 32px; }
+
+.grass2.depth-100 {
+  -webkit-animation: grass 4s 0.1s infinite linear;
+  -moz-animation: grass 4s 0.1s infinite linear;
+  animation: grass 4s 0.1s infinite linear;
+  bottom: -40px;
+  margin: 0px 0px;
+  background-size: 800px 160px;
+  height: 160px; }
+  .grass2.depth-100:after {
+    height: 0px; }
+
+
+@-webkit-keyframes grass {
+  0% {
+    -webkit-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    -moz-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg); }
+
+  100% {
+    -webkit-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    -moz-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg); } }
+
+@-moz-keyframes grass {
+  0% {
+    -webkit-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    -moz-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg); }
+
+  100% {
+    -webkit-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    -moz-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg); } }
+
+@-ms-keyframes grass {
+  0% {
+    -webkit-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    -moz-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg); }
+
+  100% {
+    -webkit-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    -moz-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg); } }
+
+@keyframes grass {
+  0% {
+    -webkit-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    -moz-transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg);
+    transform: rotateZ(0deg) translate3d(0,10%,0) rotateZ(0deg); }
+
+  100% {
+    -webkit-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    -moz-transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg);
+    transform: rotateZ(360deg) translate3d(0,10%,0) rotateZ(-360deg); } }
+
+
+
+/*
+ * For Collision detection example 
+ * 
+ */
+#game {
+    background-image: url(http://4.bp.blogspot.com/_kH-ctSxT-MY/S74pQ_OMtzI/AAAAAAAAAE8/mejUGwOF70I/s1600/Level+one+background.jpg);
+    border: 1px solid black; height: 320px; width: 480px;       
+}
+#ball {
+    position: relative; z-index:1; top: 50px; left: 200px;
+    /*border: 1px solid black; Uncomment to see HitBox */
+    height: 16px;
+    width : 16px;    
+}
+#boss {
+    position: relative; top: 235px; left: 300px;
+    /*border: 1px solid black; Uncomment to see HitBox */
+    height: 64px;
+    width : 64px;
+}
+#explosion {
+    display: none; position: absolute; z-index:2;
+    height: 32px;
+    width : 48px;    
+}
