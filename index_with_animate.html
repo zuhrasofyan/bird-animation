@@ -6,21 +6,21 @@
     <link rel="stylesheet" type="text/css" href="css/main_with_animate.css" />
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>   
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script  src="src/jquery.spritely-0.6.js"></script>
-	
-	
+
+
 
 
 
 	<script type="text/javascript">
-	
+
 	function mysprite() {
 		var skywidth = $('#sky').width();
-		
+
 		console.log(skywidth);
-		$('#sky').pan({fps: 30, speed: 0.5, dir: 'left'}); 
-		
+		$('#sky').pan({fps: 30, speed: 0.5, dir: 'left'});
+
 		var stage_left = (($('body').width() - 866) );
 		var stage_top = 30;
 		//Bird sprite
@@ -47,11 +47,11 @@
 					// This event will fire constantly whilst the object is being dragged
 				}
 			});
-			
+
 			var birdoffset = $('#plane1').offset().left;
 			console.log(birdoffset);
-		
-		
+
+
 		//David sprite
 		$('#david').sprite({fps: 15, no_of_frames: 10})
 			.activeOnClick().active()
@@ -77,8 +77,8 @@
 				}
 			});
 		$('body').flyToTap();
-	}	
-	
+	}
+
 	function mysprite2() {
 		//Bird2 sprite
 		var ab = Math.floor(50 + (1 + 250- 50) * Math.random());
@@ -94,34 +94,35 @@
 				pause: 500
 			});
 	}
-	
+
 	function mypan() {
 		//$('#grass').pan({fps: 30, speed: 2, dir: 'left'});
 		$('.grass2').sprite({fps:2, no_of_frames:2});
 	}
-	
+
 	$(document).ready(function() {
-		mysprite();	
+		mysprite();
 		mysprite2();
 		mypan();
 	});
-		
+
 	</script>
-</head> 
+</head>
 <body>
-	
+
+	<div id="content"></div>
 	<div id="sky"></div>
 	<div id="plane1"></div>
 	<div id="plane2"></div>
 	<div id="david"></div>
-	
-	<div id="container" class="wrapper">	
+
+	<div id="container" class="wrapper">
 		<ul id="scene" class="scene" style="width: 1366px; height: 376px; -webkit-transform: translate3d(0, 0, 0); -webkit-transform-style: preserve-3d; -webkit-backface-visibility: hidden;" data-mode="cursor">
 			<li class="layer" data-depth="0.80" ><div class="grass2 paint depth-80"></div></li>
 			<li class="layer" data-depth="1.00" ><div class="grass2 paint depth-100"></div></li>
 		</ul>
 	</div>
-	
+
 	<script src="src/parallax.js"></script>
 
 	<script>
@@ -132,6 +133,6 @@
 
 	</script>
 </body>
-	
-	
+
+
 </html>
